@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastEndpoints" Version="8.3.0" />
+    <PackageReference Include="FastEndpoints.Security" Version="8.3.0" />
+    <PackageReference Include="Marten" Version="9.44.0" />
+    <PackageReference Include="Marten.AspNetCore" Version="9.44.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="10.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="10.0.12" />
+    <PackageReference Include="OpenIddict.Validation.AspNetCore" Version="7.7.1" />
+    <PackageReference Include="WolverineFx" Version="6.44.0" />
+    <PackageReference Include="WolverineFx.Marten" Version="6.44.0" />
+    <PackageReference Include="WolverineFx.RuntimeCompilation" Version="6.44.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.22.0" />
+    <PackageReference Include="OpenIddict.Core" Version="7.7.1" />
+    <PackageReference Include="OpenIddict.Server" Version="7.7.1" />
+    <PackageReference Include="OpenIddict.Server.AspNetCore" Version="7.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\domain\Identity.Domain.DataAccess\Identity.Domain.DataAccess.csproj" />
+    <ProjectReference Include="..\..\domain\Identity.Domain.Models\Identity.Domain.Models.csproj" />
+  </ItemGroup>
+
+</Project>

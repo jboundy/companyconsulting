@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+  identity-db:
+    image: postgres:latest
+    container_name: identity-db
+    environment:
+      POSTGRES_USER: justin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: identityDB
+    ports:
+      - "5431:5432"
+    volumes:
+      - identity_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  billing-db:
+    image: postgres:latest
+    container_name: billing-db
+    environment:
+      POSTGRES_USER: justin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: billingDB
+    ports:
+      - "5439:5432"
+    volumes:
+      - billing_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  intranet-db:
+    image: postgres:latest
+    container_name: intranet-db
+    environment:
+      POSTGRES_USER: justin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: intranetDB
+    ports:
+      - "5430:5432"
+    volumes:
+      - intranet_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  identity_data:
+  billing_data:
+  intranet_data:
+
+networks:
+  app-network:
+    name: app-network

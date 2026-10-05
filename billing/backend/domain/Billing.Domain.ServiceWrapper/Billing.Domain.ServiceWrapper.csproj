@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Billing.Domain.BusinessLogic\Billing.Domain.BusinessLogic.csproj" />
+    <ProjectReference Include="..\Billing.Domain.DataAccess\Billing.Domain.DataAccess.csproj" />
+    <ProjectReference Include="..\Billing.Domain.Models\Billing.Domain.Models.csproj" />
+  </ItemGroup>
+
+</Project>

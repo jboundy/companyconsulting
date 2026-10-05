@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\encryption\Consulting.Encryption\Consulting.Encryption.csproj" />
+    <ProjectReference Include="..\Billing.Domain.Models\Billing.Domain.Models.csproj" />
+  </ItemGroup>
+
+</Project>
