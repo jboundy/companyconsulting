@@ -1,5 +1,5 @@
 namespace Billing.Web.Api.Features.Accounts.Login
 {
-    public record Command(Request req, CancellationToken ct);
+    public sealed record Command(Request req);
 
 }

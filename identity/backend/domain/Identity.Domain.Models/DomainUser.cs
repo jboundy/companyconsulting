@@ -8,6 +8,6 @@ namespace Identity.Domain.Models
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public IList<string> RoleClaims { get; set; } = [];
-        public List<string> Roles { get; set; } = new();
+        public List<string> Roles { get; set; } = [];
     }
 }

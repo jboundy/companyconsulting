@@ -90,7 +90,7 @@ namespace OAuth.Server.Tools
                     EmailConfirmed = true
                 };
 
-                var result = await userManager.CreateAsync(adminUser, "P@ssword123!");
+                var result = await userManager.CreateAsync(adminUser, "P@ssword1!");
                 if (result.Succeeded)
                 {
                     await userManager.AddToRoleAsync(adminUser, adminRole);

@@ -1,16 +1,14 @@
+using Billing.Web.Api.Configuration;
 using FastEndpoints;
 using Wolverine;
 
 namespace Billing.Web.Api.Features.Accounts.Login
 {
-    public class Endpoint : Endpoint<Request, Response>
+    public sealed class Endpoint(IMessageBus messageBus, JwtSettings jwtSettings) : Endpoint<Request, Response>
     {
-        private IMessageBus _messageBus;
+        private IMessageBus _messageBus = messageBus;
+        private JwtSettings _jwtSettings = jwtSettings;
 
-        public Endpoint(IMessageBus messageBus)
-        {
-            _messageBus = messageBus;
-        }
         public override void Configure()
         {
             Post("account/login");
@@ -19,10 +17,8 @@ namespace Billing.Web.Api.Features.Accounts.Login
 
         public override async Task HandleAsync(Request req, CancellationToken ct)
         {
-            var oauthServerUrl = "https://localhost:5001"; // Or read from appsettings.json
-
             // Build the target login URL on your OAuth server, preserving the return URL if provided
-            var loginUrl = $"{oauthServerUrl}/login";
+            var loginUrl = $"{_jwtSettings.Authority}/login";
             // if (!string.IsNullOrEmpty(req.ReturnUrl))
             // {
             //     loginUrl += $"?returnUrl={Uri.EscapeDataString(req.ReturnUrl)}";

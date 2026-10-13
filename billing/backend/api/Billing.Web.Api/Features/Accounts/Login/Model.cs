@@ -1,15 +1,14 @@
-using System.IdentityModel.Tokens.Jwt;
 using FastEndpoints;
 
 namespace Billing.Web.Api.Features.Accounts.Login
 {
-    public class Request
+    public sealed class Request
     {
         public required string Username { get; set; }
         public required string Password { get; set; }
     }
 
-    public class Response
+    public sealed class Response
     {
         public required string Token { get; set; }
         public required DateTime ExpiresAt { get; set; }
@@ -17,7 +16,7 @@ namespace Billing.Web.Api.Features.Accounts.Login
         public required UserDTO User { get; set; }
     }
 
-    public class Validator : Validator<Request>
+    public sealed class Validator : Validator<Request>
     {
         public Validator()
         {
@@ -25,7 +24,7 @@ namespace Billing.Web.Api.Features.Accounts.Login
         }
     }
 
-    public class UserDTO
+    public sealed class UserDTO
     {
         public int Id { get; set; }
         public required string Name { get; set; }

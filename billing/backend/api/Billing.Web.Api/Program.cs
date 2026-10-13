@@ -1,4 +1,4 @@
-using System.Text;
+using Billing.Web.Api.Configuration;
 using FastEndpoints;
 using FastEndpoints.Swagger;
 using JasperFx;
@@ -15,6 +15,8 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>()!;
+        builder.Services.AddSingleton(jwtSettings);
         var connString = builder.Configuration.GetConnectionString("DefaultConnection")!;
 
         builder.Host.UseWolverine().StartAsync();
@@ -51,26 +53,24 @@ public class Program
                     s.Version = "v1";
                 }
             );
-        var jwtSettings = builder.Configuration.GetSection("JwtSettings");
-
+        builder.Services.AddProblemDetails();
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-     .AddJwtBearer(options =>
-     {
-         options.Authority = jwtSettings["Authority"];
-         options.RequireHttpsMetadata = false;
+        .AddJwtBearer(options =>
+        {
+            options.Authority = jwtSettings.Authority;
+            options.RequireHttpsMetadata = builder.Environment.IsProduction();
 
-         options.TokenValidationParameters = new TokenValidationParameters
-         {
-             ValidateIssuer = true,
-             ValidIssuer = jwtSettings["Issuer"],
-             ValidateAudience = true,
-             ValidAudience = jwtSettings["Audience"],
-             ValidateLifetime = true,
-             IssuerSigningKey = new SymmetricSecurityKey(
-                 Encoding.UTF8.GetBytes(jwtSettings["SigningKey"] ?? throw new InvalidOperationException("JwtSettings:SigningKey is missing from configuration."))
-             )
-         };
-     });
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidIssuer = jwtSettings.Issuer,
+                ValidateAudience = true,
+                ValidAudience = jwtSettings.Audience,
+                ValidateLifetime = true,
+                NameClaimType = "name",
+                RoleClaimType = "role"
+            };
+        });
 
         var app = builder.Build();
 

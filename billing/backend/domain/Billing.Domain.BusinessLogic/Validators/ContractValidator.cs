@@ -6,7 +6,13 @@ namespace Billing.Domain.BusinessLogic.Validators
     {
         private readonly Contract _contract = contract;
         private readonly List<string> _errors = [];
-        public (bool IsValid, IReadOnlyList<string> Errors) Validate()
+        public (bool IsValid, IReadOnlyList<string> Errors) ValidateCreate()
+        {
+            StartDateGreaterThanEndDate();
+            return (_errors.Count == 0, _errors);
+        }
+
+        public (bool IsValid, IReadOnlyList<string> Errors) ValidateUpdate()
         {
             StartDateGreaterThanEndDate();
             return (_errors.Count == 0, _errors);

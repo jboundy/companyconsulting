@@ -14,11 +14,12 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+
         builder.Host.UseWolverine(opts =>
-            {
-                // Enables dynamic runtime compilation
-                opts.UseRuntimeCompilation();
-            });
+        {
+            // Enables dynamic runtime compilation
+            opts.UseRuntimeCompilation();
+        });
 
         builder.Services.AddOpenApi();
         var connString = builder.Configuration.GetConnectionString("DefaultConnection")!;
@@ -28,6 +29,7 @@ public class Program
             options.Connection(connString);
         });
 
+        // 1. Register ASP.NET Core Identity ONCE (Sets up Identity.Application, Identity.External, etc.)
         builder.Services.AddIdentity<DomainUser, IdentityRole>(options =>
         {
             // Configure password/user requirements if needed
@@ -36,24 +38,22 @@ public class Program
         .AddMartenStores<DomainUser, IdentityRole>()
         .AddDefaultTokenProviders();
 
-        builder.Services.AddAuthentication(options =>
-        {
-            options.DefaultScheme = IdentityConstants.ApplicationScheme;
-            options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
-        })
-        .AddGoogle(googleOptions =>
-        {
-            googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"]!;
-            googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"]!;
-            googleOptions.SignInScheme = IdentityConstants.ExternalScheme;
-        })
-        .AddFacebook(facebookOptions =>
-        {
-            facebookOptions.AppId = builder.Configuration["Authentication:Facebook:AppId"]!;
-            facebookOptions.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"]!;
-            facebookOptions.SignInScheme = IdentityConstants.ExternalScheme;
-        });
+        // 2. Add Google & Facebook external authentication providers
+        builder.Services.AddAuthentication()
+            .AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"]!;
+                googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"]!;
+                googleOptions.SignInScheme = IdentityConstants.ExternalScheme;
+            })
+            .AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = builder.Configuration["Authentication:Facebook:AppId"]!;
+                facebookOptions.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"]!;
+                facebookOptions.SignInScheme = IdentityConstants.ExternalScheme;
+            });
 
+        // 3. Configure OpenIddict
         builder.Services.AddOpenIddict()
             .AddCore(options =>
             {
@@ -70,10 +70,10 @@ public class Program
             .AddServer(options =>
             {
                 options.SetAuthorizationEndpointUris("/connect/authorize")
-                .SetTokenEndpointUris("/connect/token")
-                .SetUserInfoEndpointUris("/connect/userinfo")
-                .SetEndSessionEndpointUris("/connect/logout")
-                .SetRevocationEndpointUris("/connect/revocation");
+                       .SetTokenEndpointUris("/connect/token")
+                       .SetUserInfoEndpointUris("/connect/userinfo")
+                       .SetEndSessionEndpointUris("/connect/logout")
+                       .SetRevocationEndpointUris("/connect/revocation");
 
                 options.AllowAuthorizationCodeFlow()
                        .RequireProofKeyForCodeExchange()
@@ -90,11 +90,6 @@ public class Program
                        .AddDevelopmentSigningCertificate();
             });
 
-        builder.Services.AddIdentity<DomainUser, IdentityRole>()
-            .AddRoles<IdentityRole>()
-            .AddMartenStores<DomainUser, IdentityRole>()
-            .AddDefaultTokenProviders();
-
         builder.Services.AddAuthorization();
 
         builder.Services.AddFastEndpoints(options =>
@@ -103,6 +98,7 @@ public class Program
         });
 
         var app = builder.Build();
+
         if (app.Environment.IsDevelopment())
         {
             app.MapOpenApi();

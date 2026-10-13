@@ -7,6 +7,7 @@ namespace Billing.Domain.BusinessLogic.Validators
         private readonly LineItem _lineItem = lineItem;
         private readonly List<string> _errors = [];
 
+        //TODO: need to validate that the invoice attached to the line item can be edited
         public (bool IsValid, IReadOnlyList<string> Errors) ValidateCreate()
         {
             ItemPriceGreaterThanZero()
