@@ -38,7 +38,6 @@ public class Program
         .AddMartenStores<DomainUser, IdentityRole>()
         .AddDefaultTokenProviders();
 
-        // 2. Add Google & Facebook external authentication providers
         builder.Services.AddAuthentication()
             .AddGoogle(googleOptions =>
             {

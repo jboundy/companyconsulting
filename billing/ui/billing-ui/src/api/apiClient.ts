@@ -1364,6 +1364,11 @@ export class Pet implements IPet {
 
     static fromJS(data: any): Pet {
         data = typeof data === 'object' ? data : {};
+        if (data["petType"] === "schema") {
+            let result = new Body();
+            result.init(data);
+            return result;
+        }
         if (data["petType"] === "cat") {
             let result = new Cat();
             result.init(data);
@@ -1376,11 +1381,6 @@ export class Pet implements IPet {
         }
         if (data["petType"] === "bee") {
             let result = new HoneyBee();
-            result.init(data);
-            return result;
-        }
-        if (data["petType"] === "schema") {
-            let result = new Body();
             result.init(data);
             return result;
         }

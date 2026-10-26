@@ -9,7 +9,7 @@ namespace Billing.Web.Api.Features.Clients.GetDetail
 
         public override void Configure()
         {
-            Get("clients/{clientId}");
+            Get("client/{clientId}");
         }
 
         public override async Task HandleAsync(Request req, CancellationToken ct)

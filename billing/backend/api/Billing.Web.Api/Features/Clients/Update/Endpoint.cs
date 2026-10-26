@@ -10,7 +10,7 @@ namespace Billing.Web.Api.Features.Clients.Update
 
         public override void Configure()
         {
-            Put("clients");
+            Put("client");
         }
 
         public override async Task HandleAsync(Request req, CancellationToken ct)

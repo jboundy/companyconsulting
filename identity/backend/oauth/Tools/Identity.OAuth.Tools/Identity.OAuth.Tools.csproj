@@ -10,10 +10,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.13" />
     <PackageReference Include="OpenIddict.Abstractions" Version="7.7.1" />
+        <PackageReference Include="OpenIddict.Core" Version="7.7.1" />
+    <PackageReference Include="OpenIddict.Server" Version="7.7.1" />
+    <PackageReference Include="OpenIddict.Server.AspNetCore" Version="7.7.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\domain\Identity.Domain.Models\Identity.Domain.Models.csproj" />
+    <ProjectReference Include="..\..\OAuth.Server\OAuth.Server.csproj" />
   </ItemGroup>
 
 </Project>

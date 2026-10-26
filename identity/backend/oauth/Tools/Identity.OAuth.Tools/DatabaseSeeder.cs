@@ -1,43 +1,49 @@
 using Identity.Domain.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
 using OpenIddict.Abstractions;
 
 namespace OAuth.Server.Tools
 {
-    public static class DatabaseSeeder
+    public class DatabaseSeeder
     {
-        public static async Task SeedAsync(IServiceProvider serviceProvider)
-        {
-            using var scope = serviceProvider.CreateScope();
-            var scopeManager = scope.ServiceProvider.GetRequiredService<IOpenIddictScopeManager>();
+        private readonly IOpenIddictScopeManager _scopeManager;
+        private readonly IOpenIddictApplicationManager _appManager;
+        private readonly UserManager<DomainUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-            if (await scopeManager.FindByNameAsync("api_scope") == null)
+        public DatabaseSeeder(
+            IOpenIddictScopeManager scopeManager,
+            IOpenIddictApplicationManager appManager,
+            UserManager<DomainUser> userManager,
+            RoleManager<IdentityRole> roleManager)
+        {
+            _scopeManager = scopeManager;
+            _appManager = appManager;
+            _userManager = userManager;
+            _roleManager = roleManager;
+        }
+
+        public async Task SeedAsync()
+        {
+            if (await _scopeManager.FindByNameAsync("api_scope") == null)
             {
-                await scopeManager.CreateAsync(new OpenIddictScopeDescriptor
+                await _scopeManager.CreateAsync(new OpenIddictScopeDescriptor
                 {
                     Name = "api_scope",
                     DisplayName = "Access to Backend APIs",
                     Resources = { "resource_server_api" }
                 });
             }
-            var appManager = scope.ServiceProvider.GetRequiredService<IOpenIddictApplicationManager>();
-            if (await appManager.FindByClientIdAsync("web-app") == null)
+
+            if (await _appManager.FindByClientIdAsync("web-app") == null)
             {
-                await appManager.CreateAsync(new OpenIddictApplicationDescriptor
+                await _appManager.CreateAsync(new OpenIddictApplicationDescriptor
                 {
                     ClientId = "web-app",
                     ClientSecret = "web-app-secret-key-12345",
                     DisplayName = "Portal Web Application",
-                    RedirectUris =
-                {
-                    new Uri("https://localhost:7023/signin-oidc"),
-                    new Uri("https://oauth.pstmn.io/v1/callback")
-                },
-                    PostLogoutRedirectUris =
-                {
-                    new Uri("https://localhost:7023/signout-callback-oidc")
-                },
+                    RedirectUris = { new Uri("https://localhost:7023/signin-oidc"), new Uri("https://oauth.pstmn.io/v1/callback") },
+                    PostLogoutRedirectUris = { new Uri("https://localhost:7023/signout-callback-oidc") },
                     Permissions =
                 {
                     OpenIddictConstants.Permissions.Endpoints.Authorization,
@@ -54,9 +60,9 @@ namespace OAuth.Server.Tools
                 });
             }
 
-            if (await appManager.FindByClientIdAsync("admin") == null)
+            if (await _appManager.FindByClientIdAsync("admin") == null)
             {
-                await appManager.CreateAsync(new OpenIddictApplicationDescriptor
+                await _appManager.CreateAsync(new OpenIddictApplicationDescriptor
                 {
                     ClientId = "admin",
                     ClientSecret = "admin-super-secret-key-9999",
@@ -70,17 +76,14 @@ namespace OAuth.Server.Tools
                 });
             }
 
-            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<DomainUser>>();
-            var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
             string adminRole = "Administrator";
-            if (!await roleManager.RoleExistsAsync(adminRole))
+            if (!await _roleManager.RoleExistsAsync(adminRole))
             {
-                await roleManager.CreateAsync(new IdentityRole(adminRole));
+                await _roleManager.CreateAsync(new IdentityRole(adminRole));
             }
 
             string adminEmail = "admin@example.com";
-            var adminUser = await userManager.FindByEmailAsync(adminEmail);
+            var adminUser = await _userManager.FindByEmailAsync(adminEmail);
             if (adminUser == null)
             {
                 adminUser = new DomainUser
@@ -90,10 +93,10 @@ namespace OAuth.Server.Tools
                     EmailConfirmed = true
                 };
 
-                var result = await userManager.CreateAsync(adminUser, "P@ssword1!");
+                var result = await _userManager.CreateAsync(adminUser, "P@ssword1!");
                 if (result.Succeeded)
                 {
-                    await userManager.AddToRoleAsync(adminUser, adminRole);
+                    await _userManager.AddToRoleAsync(adminUser, adminRole);
                 }
             }
         }

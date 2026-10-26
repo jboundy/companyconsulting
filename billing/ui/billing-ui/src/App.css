@@ -1,0 +1,20 @@
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition:
+    background-color 0.4s ease-in-out,
+    color 0.4s ease-in-out;
+}
+
+.MuiPaper-root,
+.MuiAppBar-root,
+.MuiDrawer-paper,
+.MuiButton-root,
+.MuiCard-root,
+.MuiToolbar-root {
+  transition:
+    background-color 0.4s ease-in-out,
+    color 0.4s ease-in-out,
+    border-color 0.4s ease-in-out,
+    box-shadow 0.4s ease-in-out !important;
+}

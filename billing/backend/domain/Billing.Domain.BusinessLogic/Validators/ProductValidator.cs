@@ -7,7 +7,12 @@ namespace Billing.Domain.BusinessLogic.Validators
         private readonly Product _product = product;
         private readonly List<string> _errors = [];
 
-        public (bool IsValid, IReadOnlyList<string> Errors) Validate()
+        public (bool IsValid, IReadOnlyList<string> Errors) ValidateCreate()
+        {
+            return (_errors.Count == 0, _errors);
+        }
+
+        public (bool IsValid, IReadOnlyList<string> Errors) ValidateUpdate()
         {
             return (_errors.Count == 0, _errors);
         }

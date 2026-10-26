@@ -43,10 +43,40 @@ services:
     networks:
       - app-network
 
+  payroll-db:
+    image: postgres:latest
+    container_name: payroll-db
+    environment:
+      POSTGRES_USER: justin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: payrollDB
+    ports:
+      - "5436:5432"
+    volumes:
+      - payroll_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  product-db:
+    image: postgres:latest
+    container_name: product-db
+    environment:
+      POSTGRES_USER: justin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: productDB
+    ports:
+      - "5438:5432"
+    volumes:
+      - product_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
 volumes:
   identity_data:
   billing_data:
   intranet_data:
+  payroll_data:
+  product_data:
 
 networks:
   app-network:
