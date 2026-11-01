@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Product.Domain.BusinessLogic\Product.Domain.BusinessLogic.csproj" />
+    <ProjectReference Include="..\Product.Domain.DataAccess\Product.Domain.DataAccess.csproj" />
+    <ProjectReference Include="..\Product.Domain.Models\Product.Domain.Models.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,10 +1,10 @@
-using Billing.Domain.Models;
+using Product.Domain.Models;
 
-namespace Billing.Domain.BusinessLogic.Validators
+namespace Product.Domain.BusinessLogic.Validators
 {
-    public class ProductValidator(Product product)
+    public class ProductValidator(ProductRecord product)
     {
-        private readonly Product _product = product;
+        private readonly ProductRecord _product = product;
         private readonly List<string> _errors = [];
 
         public (bool IsValid, IReadOnlyList<string> Errors) ValidateCreate()

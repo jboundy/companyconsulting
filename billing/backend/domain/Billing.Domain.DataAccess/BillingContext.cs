@@ -163,16 +163,10 @@ namespace Billing.Domain.DataAccess
         }
     }
 
-    public class ParameterReplacer : ExpressionVisitor
+    public class ParameterReplacer(ParameterExpression target, Expression replacement) : ExpressionVisitor
     {
-        private readonly ParameterExpression _target;
-        private readonly Expression _replacement;
-
-        public ParameterReplacer(ParameterExpression target, Expression replacement)
-        {
-            _target = target;
-            _replacement = replacement;
-        }
+        private readonly ParameterExpression _target = target;
+        private readonly Expression _replacement = replacement;
 
         protected override Expression VisitParameter(ParameterExpression node)
         {

@@ -1,12 +1,14 @@
-using Billing.Domain.BusinessLogic.Validators;
-using Billing.Domain.DataAccess;
-using Billing.Domain.Models;
 
-namespace Billing.Domain.ServiceWrapper.ProductWrapper
+
+using Product.Domain.BusinessLogic.Validators;
+using Product.Domain.DataAccess;
+using Product.Domain.Models;
+
+namespace Product.Domain.ServiceWrapper.ProductWrapper
 {
-    public class ProductService(IBillingContext context) : IProductService
+    public class ProductService(IProductContext context) : IProductService
     {
-        public async Task<OperationResult> CreateProductAsync(Product entity, CancellationToken ct)
+        public async Task<OperationResult> CreateProductAsync(ProductRecord entity, CancellationToken ct)
         {
             var allErrors = new List<string>();
             var (isValid, errors) = new ProductValidator(entity).ValidateCreate();
@@ -25,7 +27,7 @@ namespace Billing.Domain.ServiceWrapper.ProductWrapper
             return OperationResult.Success();
         }
 
-        public async Task<OperationResult> UpdateProductAsync(Product entity, CancellationToken ct)
+        public async Task<OperationResult> UpdateProductAsync(ProductRecord entity, CancellationToken ct)
         {
             var allErrors = new List<string>();
             var (isValid, errors) = new ProductValidator(entity).ValidateUpdate();
