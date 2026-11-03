@@ -9,6 +9,7 @@ namespace Product.Domain.BusinessLogic.Validators
 
         public (bool IsValid, IReadOnlyList<string> Errors) ValidateCreate()
         {
+            HasValidCategory();
             return (_errors.Count == 0, _errors);
         }
 
@@ -16,5 +17,15 @@ namespace Product.Domain.BusinessLogic.Validators
         {
             return (_errors.Count == 0, _errors);
         }
+
+        public ProductValidator HasValidCategory()
+        {
+            if (_product.CategoryId <= 0)
+            {
+                _errors.Add("Category selected is not valid.");
+            }
+            return this;
+        }
+
     }
 }
