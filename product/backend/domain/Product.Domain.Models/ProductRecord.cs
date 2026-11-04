@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Billing.Domain.Taxes.Models;
 
 namespace Product.Domain.Models
 {
@@ -18,6 +19,12 @@ namespace Product.Domain.Models
 
         [JsonPropertyName("base_price")]
         public decimal BasePrice { get; set; }
+
+        /// <summary>
+        /// The categorized tax type
+        /// </summary>
+        [JsonPropertyName("tax_code")]
+        public TaxCode TaxCode { get; set; }
 
         [JsonPropertyName("is_bundle")]
         public bool IsBundle { get; set; }
