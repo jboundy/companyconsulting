@@ -1,8 +1,7 @@
-using Billing.Domain.Models;
-using Billing.Domain.ServiceWrapper;
+using Product.Domain.Models;
 using FastEndpoints;
 
-namespace Billing.Web.Api.Features.Products.Update
+namespace Product.Web.Api.Features.Products.Update
 {
     public sealed class Request
     {
@@ -27,17 +26,19 @@ namespace Billing.Web.Api.Features.Products.Update
     public sealed class ProductUpdateDTO
     {
         public int Id { get; set; }
+        public required string Name { get; set; }
         public required string Sku { get; set; }
         public required string Description { get; set; }
     }
 
-    public class UpdateProductMapper : RequestMapper<Request, Product>
+    public class UpdateProductMapper : RequestMapper<Request, ProductRecord>
     {
-        public override Product ToEntity(Request r)
+        public override ProductRecord ToEntity(Request r)
         {
-            return new Product
+            return new ProductRecord
             {
                 Id = r.ProductUpdate.Id,
+                Name = r.ProductUpdate.Name,
                 Sku = r.ProductUpdate.Sku,
                 Description = r.ProductUpdate.Description,
             };

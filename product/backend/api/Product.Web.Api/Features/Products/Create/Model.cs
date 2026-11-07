@@ -1,9 +1,8 @@
-using Billing.Domain.Models;
-using Billing.Domain.ServiceWrapper;
+using Product.Domain.Models;
 using FastEndpoints;
 using FluentValidation;
 
-namespace Billing.Web.Api.Features.Products.Create
+namespace Product.Web.Api.Features.Products.Create
 {
     public sealed class Request
     {
@@ -26,18 +25,18 @@ namespace Billing.Web.Api.Features.Products.Create
 
     public sealed class ProductDTO
     {
+        public required string Name { get; set; }
         public required string Sku { get; set; }
-
         public required string Description { get; set; }
-
     }
 
-    public class CreateProductMapper : RequestMapper<Request, Product>
+    public class CreateProductMapper : RequestMapper<Request, ProductRecord>
     {
-        public override Product ToEntity(Request r)
+        public override ProductRecord ToEntity(Request r)
         {
-            return new Product
+            return new ProductRecord
             {
+                Name = r.ProductDTO.Name,
                 Sku = r.ProductDTO.Sku,
                 Description = r.ProductDTO.Description,
             };
