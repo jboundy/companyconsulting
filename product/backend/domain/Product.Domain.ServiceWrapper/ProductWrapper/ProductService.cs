@@ -1,5 +1,3 @@
-
-
 using Product.Domain.BusinessLogic.Validators;
 using Product.Domain.DataAccess;
 using Product.Domain.Models;
