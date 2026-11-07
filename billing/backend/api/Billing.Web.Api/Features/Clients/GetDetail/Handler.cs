@@ -1,4 +1,5 @@
 using Billing.Domain.DataAccess;
+using Billing.Domain.Models;
 using Wolverine;
 
 namespace Billing.Web.Api.Features.Clients.GetDetail
@@ -9,7 +10,7 @@ namespace Billing.Web.Api.Features.Clients.GetDetail
 
         public async Task<Response> Handle(Command cmd, CancellationToken ct)
         {
-            var client = await _context.GetById<Domain.Models.Client>(cmd.id, ct) ?? throw new Exception("Client not found");
+            var client = await _context.GetById<Client>(cmd.id, ct) ?? throw new Exception("Client not found");
             var dto = new ClientDetailDTO
             {
                 Id = client.Id,
