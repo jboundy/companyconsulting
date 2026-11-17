@@ -11,6 +11,7 @@ namespace Product.Web.Api.Features.Categories.GetDetail
         public async Task<Response> Handle(Command cmd, CancellationToken ct)
         {
             var category = await _context.GetById<Category>(cmd.id, ct) ?? throw new Exception("Category not found");
+            //TODO: need to build this object
             var dto = new CategoryDetailDTO
             {
 

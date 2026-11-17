@@ -1,5 +1,4 @@
 using Product.Domain.ServiceWrapper.CategoryWrapper;
-using Product.Domain.ServiceWrapper.ProductWrapper;
 using Wolverine;
 
 namespace Product.Web.Api.Features.Categories.Create
