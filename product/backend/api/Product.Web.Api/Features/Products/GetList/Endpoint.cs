@@ -9,7 +9,7 @@ namespace Product.Web.Api.Features.Products.GetList
 
         public override void Configure()
         {
-            Get("categories");
+            Get("products");
         }
 
         public override async Task HandleAsync(CancellationToken ct)
