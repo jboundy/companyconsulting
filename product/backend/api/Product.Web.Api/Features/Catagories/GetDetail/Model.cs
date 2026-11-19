@@ -1,4 +1,3 @@
-using Product.Domain.Models;
 using FastEndpoints;
 
 namespace Product.Web.Api.Features.Categories.GetDetail
