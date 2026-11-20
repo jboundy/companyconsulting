@@ -1,0 +1,1142 @@
+{
+  "x-generator": "NSwag v14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Product API",
+    "version": "v1"
+  },
+  "paths": {
+    "/products": {
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "ProductWebApiFeaturesProductsUpdateEndpoint",
+        "requestBody": {
+          "x-name": "Request",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductWebApiFeaturesProductsUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWebApiFeaturesProductsUpdateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "JWTBearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "ProductWebApiFeaturesProductsGetListEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWebApiFeaturesProductsGetListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "JWTBearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "ProductWebApiFeaturesProductsCreateEndpoint",
+        "requestBody": {
+          "x-name": "Request",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductWebApiFeaturesProductsCreateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWebApiFeaturesProductsCreateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "JWTBearerAuth": []
+          }
+        ]
+      }
+    },
+    "/products/{productId}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "operationId": "ProductWebApiFeaturesProductsGetDetailEndpoint",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWebApiFeaturesProductsGetDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "JWTBearerAuth": []
+          }
+        ]
+      }
+    },
+    "/categories": {
+      "put": {
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "ProductWebApiFeaturesCategoriesUpdateEndpoint",
+        "requestBody": {
+          "x-name": "Request",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesUpdateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "JWTBearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "ProductWebApiFeaturesCategoriesGetListEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesGetListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "JWTBearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "ProductWebApiFeaturesCategoriesCreateEndpoint",
+        "requestBody": {
+          "x-name": "Request",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesCreateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesCreateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "JWTBearerAuth": []
+          }
+        ]
+      }
+    },
+    "/categories/{categoryId}": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "operationId": "ProductWebApiFeaturesCategoriesGetDetailEndpoint",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesGetDetailResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "security": [
+          {
+            "JWTBearerAuth": []
+          }
+        ]
+      }
+    },
+    "/account/login": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "operationId": "ProductWebApiFeaturesAccountsLoginEndpoint",
+        "requestBody": {
+          "x-name": "Request",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductWebApiFeaturesAccountsLoginRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductWebApiFeaturesAccountsLoginResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProductWebApiFeaturesProductsUpdateResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "Result"
+        ],
+        "properties": {
+          "Result": {
+            "$ref": "#/components/schemas/OperationResult"
+          }
+        }
+      },
+      "OperationResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "IsSuccess": {
+            "type": "boolean"
+          },
+          "Errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ProductWebApiFeaturesProductsUpdateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ProductUpdate"
+        ],
+        "properties": {
+          "ProductUpdate": {
+            "$ref": "#/components/schemas/ProductWebApiFeaturesProductsUpdateProductUpdateDTO"
+          }
+        }
+      },
+      "ProductWebApiFeaturesProductsUpdateProductUpdateDTO": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "name",
+          "tax_code"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "base_price": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "tax_code": {
+            "$ref": "#/components/schemas/BillingDomainTaxesModelsTaxCode"
+          },
+          "is_bundle": {
+            "type": "boolean"
+          },
+          "category_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductDomainModelsCategory"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsTag"
+            }
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "bundle_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsBundle"
+            }
+          },
+          "is_active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "BillingDomainTaxesModelsTaxCode": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Value": {
+            "type": "string"
+          }
+        }
+      },
+      "ProductDomainModelsCategory": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string",
+            "nullable": true
+          },
+          "parent_category_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "parent_category": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductDomainModelsCategory"
+              }
+            ]
+          },
+          "sub_categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsCategory"
+            }
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsProductRecord"
+            }
+          },
+          "is_active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProductDomainModelsProductRecord": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "name",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "base_price": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "tax_code": {
+            "$ref": "#/components/schemas/BillingDomainTaxesModelsTaxCode"
+          },
+          "category_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductDomainModelsCategory"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsTag"
+            }
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "bundle_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsBundle"
+            }
+          },
+          "is_active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProductDomainModelsTag": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "ProductDomainModelsBundle": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsProductRecord"
+            }
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "discount_percentage": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true
+          }
+        }
+      },
+      "FastEndpointsProblemDetails": {
+        "type": "object",
+        "description": "RFC9457 compatible problem details/ error response class. this can be used by configuring startup like so:\napp.UseFastEndpoints(c => c.Errors.UseProblemDetails())",
+        "additionalProperties": false,
+        "properties": {
+          "Type": {
+            "type": "string",
+            "default": "https://www.rfc-editor.org/rfc/rfc7231#section-6.5.1"
+          },
+          "Title": {
+            "type": "string",
+            "default": "One or more validation errors occurred."
+          },
+          "Status": {
+            "type": "integer",
+            "format": "int32",
+            "default": 400
+          },
+          "Instance": {
+            "type": "string",
+            "default": "/api/route"
+          },
+          "TraceId": {
+            "type": "string",
+            "default": "0HMPNHL0JHL76:00000001"
+          },
+          "Detail": {
+            "type": "string",
+            "description": "the details of the error",
+            "nullable": true
+          },
+          "Errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FastEndpointsProblemDetails_Error"
+            }
+          }
+        }
+      },
+      "FastEndpointsProblemDetails_Error": {
+        "type": "object",
+        "description": "the error details object",
+        "additionalProperties": false,
+        "properties": {
+          "Name": {
+            "type": "string",
+            "description": "the name of the error or property of the dto that caused the error",
+            "default": "Error or field name"
+          },
+          "Reason": {
+            "type": "string",
+            "description": "the reason for the error",
+            "default": "Error reason"
+          },
+          "Code": {
+            "type": "string",
+            "description": "the code of the error",
+            "nullable": true
+          },
+          "Severity": {
+            "type": "string",
+            "description": "the severity of the error",
+            "nullable": true
+          }
+        }
+      },
+      "ProductWebApiFeaturesProductsGetListResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductWebApiFeaturesProductsGetListProductDTO"
+            }
+          }
+        }
+      },
+      "ProductWebApiFeaturesProductsGetListProductDTO": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProductWebApiFeaturesProductsGetDetailResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ProductDetailDTO"
+        ],
+        "properties": {
+          "ProductDetailDTO": {
+            "$ref": "#/components/schemas/ProductWebApiFeaturesProductsGetDetailProductDetailDTO"
+          }
+        }
+      },
+      "ProductWebApiFeaturesProductsGetDetailProductDetailDTO": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ProductWebApiFeaturesProductsGetDetailRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ProductWebApiFeaturesProductsCreateResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "Result"
+        ],
+        "properties": {
+          "Result": {
+            "$ref": "#/components/schemas/OperationResult"
+          }
+        }
+      },
+      "ProductWebApiFeaturesProductsCreateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ProductDTO"
+        ],
+        "properties": {
+          "ProductDTO": {
+            "$ref": "#/components/schemas/ProductWebApiFeaturesProductsCreateProductDTO"
+          }
+        }
+      },
+      "ProductWebApiFeaturesProductsCreateProductDTO": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sku",
+          "name",
+          "tax_code"
+        ],
+        "properties": {
+          "sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "base_price": {
+            "type": "number",
+            "format": "decimal"
+          },
+          "tax_code": {
+            "$ref": "#/components/schemas/BillingDomainTaxesModelsTaxCode"
+          },
+          "is_bundle": {
+            "type": "boolean"
+          },
+          "category_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "category": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductDomainModelsCategory"
+              }
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsTag"
+            }
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {}
+          },
+          "bundle_items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsBundle"
+            }
+          },
+          "is_active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProductWebApiFeaturesCategoriesUpdateResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "Result"
+        ],
+        "properties": {
+          "Result": {
+            "$ref": "#/components/schemas/OperationResult"
+          }
+        }
+      },
+      "ProductWebApiFeaturesCategoriesUpdateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "CategoryUpdate"
+        ],
+        "properties": {
+          "CategoryUpdate": {
+            "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesUpdateCategoryUpdateDTO"
+          }
+        }
+      },
+      "ProductWebApiFeaturesCategoriesUpdateCategoryUpdateDTO": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string",
+            "nullable": true
+          },
+          "parent_category_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "parent_category": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductDomainModelsCategory"
+              }
+            ]
+          },
+          "sub_categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsCategory"
+            }
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsProductRecord"
+            }
+          },
+          "is_active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProductWebApiFeaturesCategoriesGetListResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesGetListCategoryDTO"
+            }
+          }
+        }
+      },
+      "ProductWebApiFeaturesCategoriesGetListCategoryDTO": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Slug": {
+            "type": "string",
+            "nullable": true
+          },
+          "ParentCategoryId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "IsActive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProductWebApiFeaturesCategoriesGetDetailResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "CategoryDetailDTO"
+        ],
+        "properties": {
+          "CategoryDetailDTO": {
+            "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesGetDetailCategoryDetailDTO"
+          }
+        }
+      },
+      "ProductWebApiFeaturesCategoriesGetDetailCategoryDetailDTO": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ProductWebApiFeaturesCategoriesGetDetailRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ProductWebApiFeaturesCategoriesCreateResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "Result"
+        ],
+        "properties": {
+          "Result": {
+            "$ref": "#/components/schemas/OperationResult"
+          }
+        }
+      },
+      "ProductWebApiFeaturesCategoriesCreateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "CategoryDTO"
+        ],
+        "properties": {
+          "CategoryDTO": {
+            "$ref": "#/components/schemas/ProductWebApiFeaturesCategoriesCreateCategoryDTO"
+          }
+        }
+      },
+      "ProductWebApiFeaturesCategoriesCreateCategoryDTO": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string",
+            "nullable": true
+          },
+          "parent_category_id": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "parent_category": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ProductDomainModelsCategory"
+              }
+            ]
+          },
+          "sub_categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsCategory"
+            }
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductDomainModelsProductRecord"
+            }
+          },
+          "is_active": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ProductWebApiFeaturesAccountsLoginResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "Token",
+          "ExpiresAt",
+          "User"
+        ],
+        "properties": {
+          "Token": {
+            "type": "string"
+          },
+          "ExpiresAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "RefreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "User": {
+            "$ref": "#/components/schemas/ProductWebApiFeaturesAccountsLoginUserDTO"
+          }
+        }
+      },
+      "ProductWebApiFeaturesAccountsLoginUserDTO": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "Name"
+        ],
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "Name": {
+            "type": "string"
+          },
+          "Roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ProductWebApiFeaturesAccountsLoginRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "Username",
+          "Password"
+        ],
+        "properties": {
+          "Username": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "JWTBearerAuth": {
+        "type": "http",
+        "description": "Enter a JWT token to authorize the requests...",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

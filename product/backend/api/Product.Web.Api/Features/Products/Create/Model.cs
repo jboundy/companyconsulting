@@ -82,7 +82,6 @@ namespace Product.Web.Api.Features.Products.Create
                 Description = r.ProductDTO.Description,
                 BasePrice = r.ProductDTO.BasePrice,
                 TaxCode = r.ProductDTO.TaxCode,
-                IsBundle = r.ProductDTO.IsBundle,
                 CategoryId = r.ProductDTO.CategoryId,
                 Tags = r.ProductDTO.Tags,
                 Attributes = r.ProductDTO.Attributes,
