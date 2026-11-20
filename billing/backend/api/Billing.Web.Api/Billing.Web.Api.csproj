@@ -25,8 +25,4 @@
     <ProjectReference Include="..\..\domain\Billing.Domain.Models\Billing.Domain.Models.csproj" />
     <ProjectReference Include="..\..\domain\Billing.Domain.ServiceWrapper\Billing.Domain.ServiceWrapper.csproj" />
   </ItemGroup>
-
-<Target Name="NSwag" AfterTargets="PostBuildEvent">
-    <Exec Command="nswag run nswag.json" />
-  </Target>
 </Project>

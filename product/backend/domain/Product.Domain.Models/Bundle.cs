@@ -7,14 +7,8 @@ namespace Product.Domain.Models
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [JsonPropertyName("product")]
-        public ProductRecord? Product { get; set; }
-
-        [JsonPropertyName("child_product_id")]
-        public int ChildProductId { get; set; }
-
-        [JsonPropertyName("child_product")]
-        public ProductRecord? ChildProduct { get; set; }
+        [JsonPropertyName("products")]
+        public List<ProductRecord> Product { get; set; } = [];
 
         [JsonPropertyName("quantity")]
         public int Quantity { get; set; } = 0;

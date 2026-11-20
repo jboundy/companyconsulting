@@ -1,15 +1,5 @@
-1. Core Domain Entities & Concepts
-   To properly separate concerns, a product system usually organizes its domain into a few core building blocks:
 
-Product / Abstract Product: Represents the high-level concept (e.g., "Pro Plan" or "Ergonomic Office Chair"). It contains marketing descriptions, brand, images, tags, and category classifications.
-
-SKU / Variant: Represents a specific, sellable item (e.g., "Pro Plan - Annual" or "Ergonomic Office Chair - Mesh / Blue"). This holds distinct identifiers (GTIN/UPC/SKU), physical dimensions, or digital access parameters.
-
-Price & Pricing Rules: Defines how a SKU is monetized (flat price, recurring tier, volume discount, multi-currency).
-
-Tax Class / Category: Maps products to tax engines (e.g., Avalara/TaxJar codes) for digital vs. physical tax rules.
-
-2. Key System Features
+1. Key System Features
    A. Catalog & Classification Management
    Hierarchical Categorization: Multi-level category trees (e.g., Electronics -> Workstations -> Monitors) and cross-category tagging.
 
@@ -42,7 +32,7 @@ Integration Events: Emitting domain events (e.g., ProductCreated, PriceUpdated, 
 
 Localization / i18n: Storing translated product titles and descriptions for multi-region support.
 
-3. Capabilities & Permissions by User Role
+1. Capabilities & Permissions by User Role
    Role-Based Access Control (RBAC) ensures different actors can perform only their relevant operations.
 
 🛠️ Product / Catalog Manager (Internal Business User)

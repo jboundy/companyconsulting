@@ -26,9 +26,6 @@ namespace Product.Domain.Models
         [JsonPropertyName("tax_code")]
         public TaxCode TaxCode { get; set; }
 
-        [JsonPropertyName("is_bundle")]
-        public bool IsBundle { get; set; }
-
         [JsonPropertyName("category_id")]
         public int CategoryId { get; set; }
 
@@ -41,6 +38,9 @@ namespace Product.Domain.Models
         [JsonPropertyName("attributes")]
         public Dictionary<string, object> Attributes { get; set; } = [];
 
+        /// <summary>
+        /// Navigation property to the bundles for that contain this product
+        /// </summary>
         [JsonPropertyName("bundle_items")]
         public ICollection<Bundle> BundleItems { get; set; } = [];
 

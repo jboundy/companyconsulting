@@ -22,6 +22,9 @@ namespace Product.Domain.Models
         [JsonPropertyName("sub_categories")]
         public ICollection<Category> SubCategories { get; set; } = [];
 
+        /// <summary>
+        /// Navigation to products that have this category
+        /// </summary>
         [JsonPropertyName("products")]
         public ICollection<ProductRecord> Products { get; set; } = [];
 

@@ -35,14 +35,11 @@ public class Program
                     .ConnectionLimit(-1);
             });
 
-            // If we're running in development mode, let Marten just take care
-            // of all necessary schema building and patching behind the scenes
             if (builder.Environment.IsDevelopment())
             {
                 opts.AutoCreateSchemaObjects = AutoCreate.All;
             }
         }).IntegrateWithWolverine();
-
 
         builder.Services.AddAuthorization().AddFastEndpoints().SwaggerDocument(o =>
 
