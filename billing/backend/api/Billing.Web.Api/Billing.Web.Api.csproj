@@ -8,13 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastEndpoints" Version="8.3.0" />
+    <PackageReference Include="FastEndpoints" Version="9.0.0" />
     <PackageReference Include="FastEndpoints.Swagger" Version="8.3.0" />
     <PackageReference Include="Marten" Version="9.44.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.12" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.12" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
-    <PackageReference Include="WolverineFx" Version="6.44.0" />
+    <PackageReference Include="WolverineFx" Version="6.64.2" />
     <PackageReference Include="WolverineFx.Http.Marten" Version="6.44.0" />
     <PackageReference Include="WolverineFx.Marten" Version="6.44.0" />
     <PackageReference Include="WolverineFx.RuntimeCompilation" Version="6.44.0" />

@@ -29,10 +29,17 @@ public class Program
             options.Connection(connString);
         });
 
-        // 1. Register ASP.NET Core Identity ONCE (Sets up Identity.Application, Identity.External, etc.)
         builder.Services.AddIdentity<DomainUser, IdentityRole>(options =>
         {
             // Configure password/user requirements if needed
+            options.Password = new PasswordOptions
+            {
+                RequiredLength = 8
+            };
+            options.Lockout = new LockoutOptions
+            {
+                DefaultLockoutTimeSpan = new TimeSpan(0, 10, 0)
+            };
         })
         .AddRoles<IdentityRole>()
         .AddMartenStores<DomainUser, IdentityRole>()
@@ -52,7 +59,7 @@ public class Program
                 facebookOptions.SignInScheme = IdentityConstants.ExternalScheme;
             });
 
-        // 3. Configure OpenIddict
+
         builder.Services.AddOpenIddict()
             .AddCore(options =>
             {

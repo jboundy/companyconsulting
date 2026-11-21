@@ -1,5 +1,3 @@
-tracks income and expenses, sends professional invoices, runs financial reports like balance sheets
-
 1. Customer & Account Data
    Customer / Account Profile: Core details identifying who is being billed, including organization name, billing contact, tax IDs (e.g., VAT or GST numbers), and currency preferences.
 
