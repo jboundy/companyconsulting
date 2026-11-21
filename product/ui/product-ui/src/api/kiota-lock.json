@@ -1,9 +1,9 @@
 {
-  "descriptionHash": "478A6D439A9238E690DFB7663616F3EE4A1321051339095CAF4FF4B1F32BFABDAFE91C3A94B132330B30A33173C3E37B4A8B2A1C0B0A4DBCD704E3D6D4A3AA6D",
-  "descriptionLocation": "http://localhost:5166/swagger/v1/swagger.json",
+  "descriptionHash": "8890E1D5D9EE6B13D0302A602129775ACB696D2AD5D21AF2DE57C01F7A3D804B769EE3DCF40B9ED215305D4155B6C555AC92FA7749142452495D96E72E0A9E60",
+  "descriptionLocation": "http://localhost:5225/swagger/v1/swagger.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.35.0",
-  "clientClassName": "hmApi",
+  "kiotaVersion": "1.36.1",
+  "clientClassName": "productWebApi",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "ApiClient",
   "language": "TypeScript",

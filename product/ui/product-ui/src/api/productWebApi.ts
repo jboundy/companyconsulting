@@ -4,17 +4,9 @@
 // @ts-ignore
 import { AccountRequestBuilderNavigationMetadata, type AccountRequestBuilder } from './account/index.js';
 // @ts-ignore
-import { ClientRequestBuilderRequestsMetadata, type ClientRequestBuilder } from './client/index.js';
+import { CategoriesRequestBuilderNavigationMetadata, CategoriesRequestBuilderRequestsMetadata, type CategoriesRequestBuilder } from './categories/index.js';
 // @ts-ignore
-import { ClientsRequestBuilderNavigationMetadata, ClientsRequestBuilderRequestsMetadata, type ClientsRequestBuilder } from './clients/index.js';
-// @ts-ignore
-import { ContractRequestBuilderRequestsMetadata, type ContractRequestBuilder } from './contract/index.js';
-// @ts-ignore
-import { InvoicesRequestBuilderNavigationMetadata, type InvoicesRequestBuilder } from './invoices/index.js';
-// @ts-ignore
-import { LineItemsRequestBuilderRequestsMetadata, type LineItemsRequestBuilder } from './lineItems/index.js';
-// @ts-ignore
-import { ProductsRequestBuilderRequestsMetadata, type ProductsRequestBuilder } from './products/index.js';
+import { ProductsRequestBuilderNavigationMetadata, ProductsRequestBuilderRequestsMetadata, type ProductsRequestBuilder } from './products/index.js';
 // @ts-ignore
 import { apiClientProxifier, ParseNodeFactoryRegistry, SerializationWriterFactoryRegistry, type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type RequestAdapter } from '@microsoft/kiota-abstractions';
 // @ts-ignore
@@ -27,11 +19,11 @@ import { MultipartSerializationWriterFactory } from '@microsoft/kiota-serializat
 import { TextParseNodeFactory, TextSerializationWriterFactory } from '@microsoft/kiota-serialization-text';
 
 /**
- * Instantiates a new {@link HmApi} and sets the default values.
+ * Instantiates a new {@link ProductWebApi} and sets the default values.
  * @param requestAdapter The request adapter to use to execute the requests.
  */
 // @ts-ignore
-export function createHmApi(requestAdapter: RequestAdapter) {
+export function createProductWebApi(requestAdapter: RequestAdapter) {
     if (requestAdapter === undefined) {
         throw new Error("requestAdapter cannot be undefined");
     }
@@ -53,41 +45,25 @@ export function createHmApi(requestAdapter: RequestAdapter) {
     }
     
     if (requestAdapter.baseUrl === undefined || requestAdapter.baseUrl === null || requestAdapter.baseUrl === "") {
-        requestAdapter.baseUrl = "http://localhost:5166";
+        requestAdapter.baseUrl = "http://localhost:5225";
     }
     const pathParameters: Record<string, unknown> = {
         "baseurl": requestAdapter.baseUrl,
     };
-    return apiClientProxifier<HmApi>(requestAdapter, pathParameters, HmApiNavigationMetadata, undefined);
+    return apiClientProxifier<ProductWebApi>(requestAdapter, pathParameters, ProductWebApiNavigationMetadata, undefined);
 }
 /**
  * The main entry point of the SDK, exposes the configuration and the fluent API.
  */
-export interface HmApi extends BaseRequestBuilder<HmApi> {
+export interface ProductWebApi extends BaseRequestBuilder<ProductWebApi> {
     /**
      * The account property
      */
     get account(): AccountRequestBuilder;
     /**
-     * The client property
+     * The categories property
      */
-    get client(): ClientRequestBuilder;
-    /**
-     * The clients property
-     */
-    get clients(): ClientsRequestBuilder;
-    /**
-     * The contract property
-     */
-    get contract(): ContractRequestBuilder;
-    /**
-     * The invoices property
-     */
-    get invoices(): InvoicesRequestBuilder;
-    /**
-     * The lineItems property
-     */
-    get lineItems(): LineItemsRequestBuilder;
+    get categories(): CategoriesRequestBuilder;
     /**
      * The products property
      */
@@ -96,32 +72,21 @@ export interface HmApi extends BaseRequestBuilder<HmApi> {
 /**
  * Uri template for the request builder.
  */
-export const HmApiUriTemplate = "{+baseurl}";
+export const ProductWebApiUriTemplate = "{+baseurl}";
 /**
  * Metadata for all the navigation properties in the request builder.
  */
-export const HmApiNavigationMetadata: Record<Exclude<keyof HmApi, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+export const ProductWebApiNavigationMetadata: Record<Exclude<keyof ProductWebApi, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     account: {
         navigationMetadata: AccountRequestBuilderNavigationMetadata,
     },
-    client: {
-        requestsMetadata: ClientRequestBuilderRequestsMetadata,
-    },
-    clients: {
-        requestsMetadata: ClientsRequestBuilderRequestsMetadata,
-        navigationMetadata: ClientsRequestBuilderNavigationMetadata,
-    },
-    contract: {
-        requestsMetadata: ContractRequestBuilderRequestsMetadata,
-    },
-    invoices: {
-        navigationMetadata: InvoicesRequestBuilderNavigationMetadata,
-    },
-    lineItems: {
-        requestsMetadata: LineItemsRequestBuilderRequestsMetadata,
+    categories: {
+        requestsMetadata: CategoriesRequestBuilderRequestsMetadata,
+        navigationMetadata: CategoriesRequestBuilderNavigationMetadata,
     },
     products: {
         requestsMetadata: ProductsRequestBuilderRequestsMetadata,
+        navigationMetadata: ProductsRequestBuilderNavigationMetadata,
     },
 };
 /* tslint:enable */

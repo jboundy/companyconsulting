@@ -1,15 +1,17 @@
 {
   "runtime": "Net100",
+  "defaultVariables": "Configuration=Debug",
   "documentGenerators": {
     "aspNetCoreToOpenApi": {
-      "assemblyPaths": ["bin/Debug/net10.0/Product.Web.Api.dll"],
-      "referencePaths": [],
-      "useNuGetCache": true,
+      "project": "Product.Web.Api.csproj",
+      "noBuild": true,
+      "aspNetCoreEnvironment": "Development",
       "output": "swagger.json"
     }
   },
   "codeGenerators": {
     "openApiToTypeScriptClient": {
+      "input": "swagger.json",
       "className": "{controller}Client",
       "moduleName": "",
       "namespace": "",

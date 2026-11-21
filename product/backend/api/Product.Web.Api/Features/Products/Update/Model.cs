@@ -80,7 +80,6 @@ namespace Product.Web.Api.Features.Products.Update
                 Description = r.ProductUpdate.Description ?? "",
                 BasePrice = r.ProductUpdate.BasePrice,
                 TaxCode = r.ProductUpdate.TaxCode,
-                IsBundle = r.ProductUpdate.IsBundle,
                 CategoryId = r.ProductUpdate.CategoryId,
                 Tags = r.ProductUpdate.Tags,
                 Attributes = r.ProductUpdate.Attributes,
