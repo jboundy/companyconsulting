@@ -2,13 +2,13 @@ using System.Text.RegularExpressions;
 
 namespace Identity.Domain.Models
 {
-    public readonly partial record struct TimeZone
+    public readonly partial record struct TimeZoneStruct
     {
-        public static readonly TimeZone Utc = new("UTC");
-        public static readonly TimeZone Default = new("America/Chicago");
+        public static readonly TimeZoneStruct Utc = new("UTC");
+        public static readonly TimeZoneStruct Default = new("America/Chicago");
         public string Value { get; }
-        private TimeZone(string value) => Value = value;
-        public static bool TryCreate(string? input, out TimeZone timeZone, out string? error)
+        private TimeZoneStruct(string value) => Value = value;
+        public static bool TryCreate(string? input, out TimeZoneStruct timeZone, out string? error)
         {
             timeZone = default;
             error = null;
@@ -41,7 +41,7 @@ namespace Identity.Domain.Models
                     ? ianaId
                     : tzInfo.Id;
 
-                timeZone = new TimeZone(canonicalId);
+                timeZone = new TimeZoneStruct(canonicalId);
                 return true;
             }
             catch (TimeZoneNotFoundException)

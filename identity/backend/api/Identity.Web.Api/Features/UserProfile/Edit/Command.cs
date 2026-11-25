@@ -1,12 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Identity.Web.Api.Features.UserProfile.Edit
 {
-    public class Command
-    {
-        
-    }
+    public sealed record Command(int userId, CancellationToken ct);
+
 }

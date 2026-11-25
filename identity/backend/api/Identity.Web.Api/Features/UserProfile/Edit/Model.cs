@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Identity.Web.Api.Features.UserProfile.Edit
 {
-    public class Model
+    public class Request
     {
-        
+
     }
 }

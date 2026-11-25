@@ -7,6 +7,6 @@ namespace Identity.Web.Api.Features.UserProfile.GetDetail
 {
     public class Handler
     {
-        
+
     }
 }
