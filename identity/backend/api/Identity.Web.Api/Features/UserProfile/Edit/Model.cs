@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Identity.Web.Api.Features.Admin.UserDetail
+namespace Identity.Web.Api.Features.UserProfile.Edit
 {
-    public class Endpoint
+    public class Model
     {
         
     }

@@ -4,14 +4,9 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Identity.Web.Api.Features.Account.ChangePassword
 {
-    public class Endpoint : Endpoint<Request>
+    public class Endpoint(UserManager<DomainUser> userManager) : Endpoint<Request>
     {
-        private readonly UserManager<DomainUser> _userManager;
-
-        public Endpoint(UserManager<DomainUser> userManager)
-        {
-            _userManager = userManager;
-        }
+        private readonly UserManager<DomainUser> _userManager = userManager;
 
         public override void Configure()
         {

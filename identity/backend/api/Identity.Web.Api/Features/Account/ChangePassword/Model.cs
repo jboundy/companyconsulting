@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FastEndpoints;
+using FluentValidation;
 
 namespace Identity.Web.Api.Features.Account.ChangePassword
 {
@@ -18,7 +19,7 @@ namespace Identity.Web.Api.Features.Account.ChangePassword
     {
         public Validator()
         {
-
+            RuleFor(x => x.UserId).NotNull().NotEmpty().WithMessage("Must Provide User Id");
         }
     }
 }

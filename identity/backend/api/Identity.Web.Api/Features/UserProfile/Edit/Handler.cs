@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Identity.Web.Api.Features.Profile.Edit
+namespace Identity.Web.Api.Features.UserProfile.Edit
 {
     public class Handler
     {

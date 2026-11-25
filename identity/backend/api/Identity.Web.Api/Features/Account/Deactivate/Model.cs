@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Identity.Web.Api.Features.Account.Deactivate
 {
-    public class Model
+    public sealed class Request
     {
-        
+        public required string UserId { get; set; }
     }
 }
