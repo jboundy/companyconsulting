@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Identity.Domain.DataAccess\Identity.Domain.DataAccess.csproj" />
+    <ProjectReference Include="..\Identity.Domain.Models\Identity.Domain.Models.csproj" />
+  </ItemGroup>
+
 </Project>

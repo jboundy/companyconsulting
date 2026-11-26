@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FastEndpoints;
 using Identity.Domain.Models;
 using Identity.Domain.ServiceWrapper;
-using Marten.Linq.CreatedAt;
 using Microsoft.AspNetCore.Identity;
 
 namespace Identity.Web.Api.Features.Account.Create

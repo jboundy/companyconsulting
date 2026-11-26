@@ -2,7 +2,7 @@ using Billing.Domain.BusinessLogic.Validators;
 using Billing.Domain.DataAccess;
 using Billing.Domain.Models;
 
-namespace Billing.Domain.ServiceWrapper
+namespace Billing.Domain.ServiceWrapper.LineItemWrapper
 {
     public class LineItemService(IBillingContext context) : ILineItemService
     {

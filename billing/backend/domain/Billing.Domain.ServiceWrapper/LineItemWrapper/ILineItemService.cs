@@ -1,6 +1,6 @@
 using Billing.Domain.Models;
 
-namespace Billing.Domain.ServiceWrapper
+namespace Billing.Domain.ServiceWrapper.LineItemWrapper
 {
     public interface ILineItemService
     {

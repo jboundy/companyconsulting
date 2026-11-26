@@ -30,8 +30,8 @@ namespace Identity.Web.Api.Features.Account.ForgotPassword
                 await Send.ResponseAsync("Unable to generate forgot password link.", 400, ct);
                 return;
             }
-
-            await Send.OkAsync(null, ct);
+            //TODO: Send notification - sms or email or some other means
+            //await Send.OkAsync(null, ct);
         }
     }
 }
